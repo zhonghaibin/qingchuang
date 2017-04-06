@@ -1,0 +1,83 @@
+<head>
+    <title></title>
+    <meta name="Keywords" content="">
+    <meta name="description" content="">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="__STYLE__/home/main.css">
+	<script src="__JS__/home/jquery.js" type="text/javascript"></script>
+	<script type="text/javascript" src="__PUBLIC__/H-ui/lib/layer/2.1/layer.js"></script>
+	<script src="__JS__/home/H-ui.home.js" type="text/javascript"></script>
+    <style type="text/css">  
+     #preview,img, .imgs
+     {  
+		width:240px;  
+		height:180px;
+     } 
+	 span{font-size:15px;display:black;height:24px;line-height:24px;}
+	 </style>
+</head>
+<body>
+
+
+<div class='Common_box'><div class="title">
+	<div class="img"></div>
+	<div class="txt">订单详细信息 </div>
+	</div>
+	<div class='Common_box_box'>
+	<span style='font-size:16px;font-weight:bold;'>根据下面的银行详细信息打款：</span>
+	<div class='Common_box_row'>
+		<span>推荐人账号：<{$reinfo.username}></span></br>
+		<span>推荐人姓名：<{$reinfo.name}></span></br>
+		<span>推荐人电话：<{$reinfo.mobile}></span></br>
+	<div>
+	<div style='height:2px;clear:both;'></div>
+	<div class='Common_box_row'>
+		<span>打款人账号：<{$userinfo.username}></span></br>
+		<span>打款人姓名：<{$userinfo.name}></span></br>
+		<span>打款人电话：<{$userinfo.mobile}></span></br>
+		<if  condition='$userinfo.zff1 eq 1 and $userinfo.zff2  eq 1'>
+		<span>打款人银行名称：<{$userinfo.bank}></span></br>
+		<span>打款人银行卡号：<{$userinfo.bankno}></span></br>
+		<span>打款人支付宝：<{$userinfo.alipay}></span></br>
+		<elseif condition='$userinfo.zff1 eq 1'>
+		<span>打款人银行名称：<{$userinfo.bank}></span></br>
+		<span>打款人银行卡号：<{$userinfo.bankno}></span></br>
+		<elseif condition='$userinfo.zff2 eq 1' />
+		<span>打款人支付宝：<{$userinfo.alipay}></span></br>
+		<else/>
+		<span>打款人银行名称：<{$userinfo.bank}></span></br>
+		<span>打款人银行卡号：<{$userinfo.bankno}></span></br>
+		<span>打款人支付宝：<{$userinfo.alipay}></span></br>
+		</if>
+	<div>
+	<div style='height:2px;clear:both;'></div>
+
+	<div class='Common_box_row' >
+		<if condition='$crinfo["upload_doc"] neq "" ' >
+		<div id="preview"><img src='./Public/upload/bank/<{$crinfo["c_user_id"]}>/<{$crinfo["upload_doc"]}>'></div> 
+		<else />
+		  <div id="preview"><img src='__IMG__/home/bgg.png'></div>  
+		</if>
+	<div>
+	
+	<div style='height:2px;clear:both;'></div>
+		<if condition='$crinfo["status"] eq 2' >
+		<form method="post" action="">
+		<div class='Common_box_row'>
+		<div class='Common_l Common_row'>
+			
+			<input type='hidden' class='id' name='id' value='<{$crinfo.id}>' />
+			<input type='button' value='拒绝' class='Common_input input_style__reset_bg fake_btn' onclick='fake_save()'>
+		</div>
+		<div class='Common_r Common_row'>{__TOKEN__}
+				<input type='button' value='确认' class='Common_input input_style__botton_bg' onclick='affirm_save()'>
+		</div>
+	<div>
+	</form>
+	</if>
+	</div>
+</div>
+
+</body>
+</html>

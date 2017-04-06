@@ -1,0 +1,37 @@
+<include file='Common:head' />
+<title>修改用户信息</title>
+</head>
+<body>
+<article class="page-container">
+	<form action="" method="post" class="form form-horizontal" id="form-member-add">
+		<div class="row cl">
+			<label class="form-label col-xs-3 col-sm-3" style='text-align:right;'>等级：</label>
+				<div class="formControls col-xs-7 col-sm-9"> 
+			     <span class="select-box">
+				<select class="select star" size="1" name="star">
+				<foreach name='level' item='vo' >
+				<option value="<{$key}>" <if condition='$member_row.star eq $key '> selected=selected </if>><{$vo}></option>
+				</foreach>
+				</select>
+				</span> 
+				</div>
+		</div>
+		<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+			</div>
+		</div>
+	</form>
+</article>
+<include file='Common:foot' />
+<script type="text/javascript">
+$(function(){
+
+	
+	$("#form-member-add").validate({
+		submitHandler:function(form){
+		manager_edit_save(<{$id}>);
+		}
+	});
+});
+</script> 

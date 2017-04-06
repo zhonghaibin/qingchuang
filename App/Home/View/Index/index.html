@@ -1,0 +1,468 @@
+﻿<include file='Common:header' />
+<link href="__STYLE__/home/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="__STYLE__/home/main.v001.css" type="text/css"/>
+<div class="body_Dv"> 
+<div class="divcentent" >
+<div class="clear"></div>
+<div class="info">
+	<div class="left">
+    		<span  class="nav_11 nav_bg" style="margin-left:5px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp; <span>级别：<{$star[$selfinfo['star']]}></span>
+    </div>
+    <div class="right" >
+    	&nbsp; <span></span>&nbsp; <span></span>&nbsp; <span>
+    </div>
+</div>
+
+<div class="warning"  >
+	<div class="center warning_box">
+        <span  class="nav_12 left" style="width:40px;height:40px;display:block;">&nbsp;</span>
+        <span class="left  block red">警示： 这里是54青创金融互助社区，自愿承担一切风险！</span></div>
+</div>
+    <div class="bannerbox" >
+		<volist name='bannerlist' id='vo' offset="0" length='3'>
+        <img src="__PUBLIC__/upload/banner/<{$vo.src}>" />
+		</volist>
+    </div>
+<div class="gnxanniu" >
+      <a class="sup left" id="pdBtn" >提 供 帮 助</a>
+      <a class="acc right" id="gdBtn" >接 受 帮 助</a>
+</div>
+<!---->
+    <div class="row">
+	<div style="display:none; " id="pdWrap" class="col-md-12">
+                            <div class="widget widget-body-white">
+
+                              <form id="provide_help" class="form-horizontal margin-none" name="buy_share_form">
+								{__TOKEN__}
+                                <div class="widget-head widget-head-blue">
+
+                                  <h4 class="heading">
+
+                                    <i class="fa fa-usd"></i> 我要提供帮助
+
+                                  </h4>
+
+                                </div>
+
+                                  <div class="w_l_123" >
+                                       <div class=" text_tips left" >支付方式：</div>
+                                       <div class="inp right" >
+                                        <label>
+                                        <input type="checkbox" value="1" class="ckbox zffs1" name="zffs1" checked="">
+                                        银行支付
+                                        </label>
+
+                                      <label>
+
+                                        <input type="checkbox" value="1" class="ckbox zffs2" name="zffs2" checked="">
+
+                                        支付宝支付
+
+                                      </label>
+
+                                       </div>
+                                  </div>
+                                   
+                                  <div class="w_l_123" >
+                                       <div class=" text_tips left" >提供帮助金额：</div>
+                                       <div class="inp right" >
+                                         <input type="text" id="" value="" class="input_texts money" name='money'   placeholder="输入金额（金额必须为<{$relust['multipleofextraction']}>的倍数）" />
+                                       </div>
+                                  </div>
+
+                                   <div class="w_l_123" >
+                                       <div class=" text_tips left" ></div>
+                                       <div class="inp right" >
+                                         <span class="red">*温馨提示：我已阅读公告警示，充分了解所有风险，并选择参与，既思想健全。 </span>
+                                       </div>
+                                  </div>
+                                  <div class="data-footer innerAll half text-right clearfix">
+                                  <input type="button" value="提供帮助" class="btn_next btn-warning btn-sm btn btn-primary " id="jhwjjc" onclick='provide_add_save()'>
+
+                                </div>
+                              </form>
+
+                            </div>
+
+                          </div>
+
+                          <div style="display: none;" id="gdWrap" class="col-md-12">
+
+                            <div class="widget widget-body-white">
+
+                              <form id="Form1" class="form-horizontal margin-none" name="buy_share_form"  >
+														{__TOKEN__}
+                                <div class="widget-head widget-head-blue">
+
+                                  <h4 class="heading">
+
+                                    <i class="fa fa-usd"></i> 我要接受帮助
+
+                                  </h4>
+
+                                </div>
+
+                                  <div class="w_l_123" >
+                                       <div class=" text_tips left" >支付方式：</div>
+                                       <div class="inp right" >
+                                           <label>
+
+                                        <input type="checkbox" value="1" class="ckbox zffs3" name="zffs3" checked="">
+
+                                        银行支付
+
+                                      </label>
+
+                                      <label>
+
+                                        <input type="checkbox" value="1" class="ckbox zffs4" name="zffs4" checked="">
+
+                                        支付宝支付
+
+                                      </label>
+                                       </div>
+                                  </div>
+                                   
+                                  <div class="w_l_123" >
+                                       <div class=" text_tips left" >接收帮助金额：</div>
+                                       <div class="inp right" >
+                                         <input type="text" id="Text1" value="" class="input_texts sum" name='sum'   placeholder="输入金额（金额必须为<{$relust['multipleofextraction']}>的倍数）" />
+                                       </div>
+                                  </div>
+
+                                   <div class="w_l_123" >
+                                       <div class=" text_tips left" ></div>
+                                       <div class="inp right" >
+                                         <span class="notweight" > 您现有可接受帮助总余额： <{$selfinfo.cash}> RMB</span>
+                                       </div>
+                                  </div>
+                                 
+                                    <div class="w_l_123" >
+                                       <div class=" text_tips left" ></div>
+                                       <div class="inp right" >
+                                         <span class="notweight" >  您最低可接受帮助金额： <{$relust.receivinglimit}> RMB </span>
+                                       </div>
+                                  </div>
+                                  <div class="data-footer innerAll half text-right clearfix">
+
+                                  <input type="button" value="接受帮助" class="btn_next btn-warning btn-sm btn btn-primary " id="Submit1" onclick='apply_add_save()'/>
+
+                                </div>
+                              </form>
+
+                            </div>
+
+                          </div>
+
+                        </div>
+<!---->
+<div class="clear" ></div>
+<div style="margin-top: 10px; margin-bottom: 10px;" >
+            <div class="left" style="width: 687px;">
+                <div class="core_con">
+            <table class="tablebg">
+                <tbody>
+                     <tr class="datafield">
+                        <th style="border: 1px #fceed1 solid; font-size: 14px;" colspan="7">
+                            <nobr>我的提供帮助</nobr>
+                        </th>
+                        
+                    </tr>
+                    <tr class="datalist">
+                        <td style="border: 1px #fceed1 solid; font-size: 12px;">
+                            <nobr>编号</nobr>
+                        </td>
+                        <td style="border: 1px #fceed1 solid; font-size: 12px;">
+                            <nobr>交易进度</nobr>
+                        </td>
+
+                        <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                            <nobr>匹配时间</nobr>
+                        </td>
+                        <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                            <nobr>接受会员</nobr>
+                        </td>
+                      	<td style="font-size: 12px; border: 1px #fceed1 solid;">
+                            <nobr>倒计时</nobr>
+                        </td>
+                        <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                            <nobr>付款金额</nobr>
+                        </td>
+					
+                        <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                            <nobr>操作</nobr>
+                        </td>
+                    </tr>
+				<volist name='list1' id="vo">
+                        <tr class="datalist">
+                            <td style="border: 1px #fceed1 solid; font-size: 12px;">
+                            <nobr><{$vo.c_eg}></nobr>
+                        </td>
+                        <td style="border: 1px #fceed1 solid; font-size: 12px;">
+                            <nobr><{$crstatus[$vo[status]]}></nobr>
+                        </td>
+
+                        <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                            <nobr><{$vo.create_date|date='Y-m-d H:i:s',###}></nobr>
+                        </td>
+                        <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                            <nobr><{$vo.name}></nobr>
+                        </td>
+                          <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                            <nobr>	
+								<if  condition='$vo["status"] eq 2 '>
+							   <strong id="hour_show_<{$i}>" style="color:green;"><s id="h"></s>0h:</strong>
+							   <strong id="minute_show_<{$i}>" style="color:green;"><s></s>00m:</strong>
+							   <strong id="second_show_<{$i}>" style="color:green;"><s></s>00s</strong>
+								<else/>
+							   <strong id="hour_show_<{$i}>" style="color:#d00000;"><s id="h"></s>0h:</strong>
+							   <strong id="minute_show_<{$i}>" style="color:#d00000;"><s></s>00m:</strong>
+							   <strong id="second_show_<{$i}>" style="color:#d00000;"><s></s>00s</strong>
+							   </if>
+								<script type="text/javascript">
+                                <if condition='$vo.status eq 1 or $vo.status eq 4 '>
+								var intDiff_<{$i}> =<{$vo.die_time}>;
+								<elseif condition='$vo.status eq 2' />
+								var intDiff_<{$i}> =<{$vo.receive_time}>;
+								<else/>
+								var intDiff_<{$i}> =0;
+								</if>
+                                    //var intDiff = parseInt(60);//倒计时总秒数量
+                                    function timer_<{$i}>(intDiff_<{$i}>) {
+                                        window.setInterval(function() {
+                                            var day = 0,
+                                                    hour = 0,
+                                                    minute = 0,
+                                                    second = 0;//时间默认值
+                                            if (intDiff_<{$i}> > 0) {
+                                                //day = Math.floor(intDiff / (60 * 60 * 24));
+                                                hour = Math.floor(intDiff_<{$i}> / (60 * 60));
+                                                minute = Math.floor(intDiff_<{$i}> / 60) - (hour * 60);
+                                                second = Math.floor(intDiff_<{$i}>) - (hour * 60 * 60) - (minute * 60);
+                                            }
+                                            if (minute <= 9)
+                                                minute = '0' + minute;
+                                            if (second <= 9)
+                                                second = '0' + second;
+                                            //$('#day_show').html(day+"天");
+                                            $('#hour_show_<{$i}>').html('<s id="h"></s>' + hour + 'h:');
+                                            $('#minute_show_<{$i}>').html('<s></s>' + minute + 'm:');
+                                            $('#second_show_<{$i}>').html('<s></s>' + second + 's');
+                                            intDiff_<{$i}> --;
+                                        }, 1000);
+                                    }
+
+                                    $(function() {
+                                        timer_<{$i}>(intDiff_<{$i}>);
+                                    });
+                                </script>
+								
+							</nobr>
+                        </td>
+                        <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                            <nobr><{$vo.sum}> CNY</nobr>
+                        </td>
+                        <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                            <a href='javascript:#' onclick='playmoney("600","600","提供帮助","<{:U("Index/playmoney",array("id"=>$vo["id"]))}>")'>详情</a>
+                        </td>
+                        </tr>
+				 </volist>
+					</tbody>
+            </table>
+        </div>
+                 
+                <div class="core_con">
+            <table class="tablebg">
+                <tbody>
+                     <tr class="datafield">
+                        <th style="border: 1px #fceed1 solid; font-size: 14px;" colspan="7">
+                            <nobr>我的接收帮助</nobr>
+                        </th>
+                        
+                    </tr>
+                    <tr class="datalist">
+                        <td style="border: 1px #fceed1 solid; font-size: 12px;">
+                            <nobr>编号</nobr>
+                        </td>
+                        <td style="border: 1px #fceed1 solid; font-size: 12px;">
+                            <nobr>交易进度</nobr>
+                        </td>
+
+                        <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                            <nobr>匹配时间</nobr>
+                        </td>
+                        <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                            <nobr>打款会员</nobr>
+                        </td>
+                       <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                            <nobr>倒计时</nobr>
+                        </td>
+                        <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                            <nobr>付款金额</nobr>
+                        </td>
+                        <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                            <nobr>操作</nobr>
+                        </td>
+                    </tr>
+					<volist name='list2' id="vo">
+                        <tr class="datalist">
+                            <td style="border: 1px #fceed1 solid; font-size: 12px;">
+                            <nobr><{$vo.cr_eg}></nobr>
+                        </td>
+                        <td style="border: 1px #fceed1 solid; font-size: 12px;">
+                            <nobr><{$crstatus[$vo[status]]}></nobr>
+                        </td>
+
+                        <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                            <nobr><{$vo.create_date|date='Y-m-d H:i:s',###}></nobr>
+                        </td>
+                        <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                            <nobr><{$vo.name}></nobr>
+                        </td>
+                         <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                            <nobr>
+							<if  condition='$vo["status"] eq 2 '>
+							<strong id="hour_show__<{$i}>" style="color:green;"><s id="h"></s>0h:</strong>
+							   <strong id="minute_show__<{$i}>" style="color:green;"><s></s>00m:</strong>
+							   <strong id="second_show__<{$i}>" style="color:green;"><s></s>00s</strong>
+							<else/>
+								<strong id="hour_show__<{$i}>" style="color:#d00000;"><s id="h"></s>0h:</strong>
+							   <strong id="minute_show__<{$i}>" style="color:#d00000;"><s></s>00m:</strong>
+							   <strong id="second_show__<{$i}>" style="color:#d00000;"><s></s>00s</strong>
+							   </if>
+								<script type="text/javascript">
+                                <if condition='$vo.status eq 1 or $vo.status eq 4 '>
+								var intDiff__<{$i}> =<{$vo.die_time}>;
+								<elseif condition='$vo.status eq 2' />
+								var intDiff__<{$i}> =<{$vo.receive_time}>;
+								<else/>
+								var intDiff__<{$i}> =0;
+								</if>
+
+                                    //var intDiff = parseInt(60);//倒计时总秒数量
+                                    function timer__<{$i}>(intDiff__<{$i}>) {
+                                        window.setInterval(function() {
+                                            var day = 0,
+                                                    hour = 0,
+                                                    minute = 0,
+                                                    second = 0;//时间默认值
+                                            if (intDiff__<{$i}> > 0) {
+                                                //day = Math.floor(intDiff / (60 * 60 * 24));
+                                                hour = Math.floor(intDiff__<{$i}> / (60 * 60));
+                                                minute = Math.floor(intDiff__<{$i}> / 60) - (hour * 60);
+                                                second = Math.floor(intDiff__<{$i}>) - (hour * 60 * 60) - (minute * 60);
+                                            }
+                                            if (minute <= 9)
+                                                minute = '0' + minute;
+                                            if (second <= 9)
+                                                second = '0' + second;
+                                            //$('#day_show').html(day+"天");
+                                            $('#hour_show__<{$i}>').html('<s id="h"></s>' + hour + 'h:');
+                                            $('#minute_show__<{$i}>').html('<s></s>' + minute + 'm:');
+                                            $('#second_show__<{$i}>').html('<s></s>' + second + 's');
+                                            intDiff__<{$i}>--;
+                                        }, 1000);
+                                    }
+
+                                    $(function() {
+                                        timer__<{$i}>(intDiff__<{$i}>);
+                                    });
+                                </script>
+                       
+								
+							</nobr>
+                        </td>
+                        <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                            <nobr><{$vo.sum}> CNY</nobr>
+                        </td>
+                        <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                             <a href='javascript:#' ' onclick='receivables("600","600","接收帮助","<{:U("Index/receivables",array("id"=>$vo["id"]))}>")'>详情</a>
+                        </td>
+                        </tr>
+				   </volist>
+                </tbody>
+            </table>
+        </div>
+                <div class="clear"></div>
+            </div>
+<div class="right" style="width: 299px;">
+                <div id="providelist">
+
+				<volist name='rightlist' id='vo'>
+                    <div class="aceptlist sup_<{$vo.style}>">
+                        <div style="width: 40px; text-align: center;" class="left">
+                             <img src="__IMG__/home/jt.png" alt="xxxx" />
+                        </div>
+                        <div style="width: 215px;" class="right">
+						<if condition='$vo.style eq 1'>
+                            <span><strong>舍：提供帮助</strong><br />
+                                <strong><{$vo.eg}></strong>
+                            </span>
+						<else/>
+							<span><strong>得：接收帮助</strong><br />
+                                <strong><{$vo.eg}></strong>
+                            </span>
+						</if>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="aceptlistinfo">
+                            <p>参加者: <{$vo.name}></p>
+                            <p>金额: <{$vo.money}> CNY </p>
+                            <p>日期: <{$vo.create_date|date='Y-m-d H:i:s',###}></p>
+							<if condition='$vo.style eq 1'>
+                            <p>状况：<{$cstatus[$vo[status]]}></p>
+							<else/>
+							<p>状况：<{$rstatus[$vo[status]]}></p>
+							</if>
+                        </div>
+                   </div>
+                  </volist>
+			<div class="clear"></div> 
+			<div class='page'><{$page1}></div>
+		</div>
+		</div>
+		</div>
+		</div>
+</body>
+</html>
+<script>
+		/******************************************************/
+		jQuery(document).ready(function ($) {
+
+		var gdBtn = $('#gdBtn');
+
+		var pdBtn = $('#pdBtn');
+
+		pdBtn.click(function () {
+
+		$(this).toggleClass('active');
+
+		gdBtn.removeClass('active');
+
+		$('#pdWrap').stop(true, false).slideToggle('fast');
+
+		$('#gdWrap').stop(true, false).slideUp('fast').removeClass('open');
+
+		return false;
+
+		});
+
+		// if user status is freeze or just unblock and not yet do the maintain
+
+		gdBtn.click(function () {
+
+		$(this).toggleClass('active');
+
+		pdBtn.removeClass('active');
+
+		$('#gdWrap').stop(true,false).slideToggle('fast');
+
+		$('#pdWrap').stop(true, false).slideUp('fast').removeClass('open');
+
+		return false;
+
+		});
+
+		});
+
+</script>

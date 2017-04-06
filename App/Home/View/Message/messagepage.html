@@ -1,0 +1,20 @@
+﻿<include file='Common:header' />
+<div class="body_Dv">
+ <div class="MessBox" >
+    <div class="divcentent">
+        <div class="new_dv">
+		<div class="head_title" >
+		 <span class=" path left" >信件 > 回复</span>
+         </div> 
+		  <div style='padding:10px 50px;'>
+		  <div  style='font-size:16px;;margin: 5px 0px;'>主题：<{$relust.subject}></div>
+		  <div  style='font-size:16px;;margin: 5px 0px;'>时间：<{$relust.addtime|date='Y-m-d H:i:s',###}></div>
+		  <div  style='font-size:16px;margin: 5px 0px;'>内容：<{$relust.content}></div>
+		  <div  style='font-size:16px;margin: 5px 0px;'>回复：<if condition='$relust.reply neq "" '><{$relust.reply}><else/>暂时还未回复</if></div>
+		  </div>
+        </div>
+    </div>
+</div>
+ </div>
+</body>
+</html>

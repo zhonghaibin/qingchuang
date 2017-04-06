@@ -1,0 +1,93 @@
+﻿<include file='common:head' />
+<title>奖金设置</title>
+</head>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 系统设置 <span class="c-gray en">&gt;</span> 奖金设置 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="pd-20">
+<form method="post" action="__SELF__">
+<table class="table table-border table-bordered table-hover table-bg">
+  <tbody>
+	<tr>
+      <th class="text-r" width="200">提供帮助限额：</th><td><input type="text" name='providehelplimit' placeholder="" value="<{$setbonus.providehelplimit}>" style="width:200px" class="input-text providehelplimit">元
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<input type="text" placeholder="" readonly='readonly' value="<{$allowmoney.time|date='Y-m-d H:i:s',###}>" style="width:200px" class="input-text">到目前为止已经排单：<input type="text" placeholder="" value="<{$allowmoney.allmoney}>" style="width:200px" class="input-text" readonly='readonly'>元
+	  </td>
+    </tr>
+	<tr>
+      <th class="text-r" width="200">新用户注册奖励：</th><td><input type="text" name='newuserreward' placeholder="" value="<{$setbonus.newuserreward}>" style="width:200px" class="input-text newuserreward">元 （为0不赠送）</td>
+    </tr>
+	<tr>
+      <th class="text-r" width="200">排队期每日利息：</th><td><input type="text" name='dailyinterest' placeholder="" value="<{$setbonus.dailyinterest}>" style="width:200px" class="input-text dailyinterest">%</td>
+    </tr>
+	<tr>
+      <th class="text-r" width="200">冻结期：</th><td><input type="text"  placeholder="" name='freezingdays' value="<{$setbonus.freezingdays}>" style="width:200px" class="input-text freezingdays">天，每日利息：<input type="text"  placeholder=""  name='interestfreeze' value="<{$setbonus.interestfreeze}>" style="width:200px" class="input-text interestfreeze">%</td>
+    </tr>
+    <tr>
+      <th class="text-r" width="200">赞助/提现倍数：</th><td><input type="text" name='multipleofextraction' placeholder="" value="<{$setbonus.multipleofextraction}>" style="width:200px" class="input-text multipleofextraction">必须填整数倍</td>
+    </tr>
+	<tr>
+      <th class="text-r">每日申请接收帮助次数：</th><td><input type="text" name='frequency'  placeholder="" value="<{$setbonus.frequency}>" style="width:200px" class="input-text frequency">次（必须是整数）</td>
+    </tr>
+	<tr>
+      <th class="text-r">会员最低提供帮助：</th><td><input type="text" name='minimumamount'  placeholder="" value="<{$setbonus.minimumamount}>" style="width:200px" class="input-text minimumamount">元</td>
+    </tr>
+	<tr>
+      <th class="text-r">会员最低接收帮助：</th><td><input type="text" name='receivinglimit'  placeholder="" value="<{$setbonus.receivinglimit}>" style="width:200px" class="input-text receivinglimit">元</td>
+    </tr>
+    <tr>
+      <th class="text-r">新会员最高只能排：</th><td><input type="text" name='newuserqueuelimit'  placeholder="" value="<{$setbonus.newuserqueuelimit}>" style="width:200px" class="input-text newuserqueuelimit">元</td>
+    </tr>
+	<tr>
+      <th class="text-r">每升一级增加：</th><td><input type="text"  name='increaseamount' placeholder="" value="<{$setbonus.increaseamount}>" style="width:200px" class="input-text increaseamount">元</td>
+    </tr>
+	
+    <tr>
+      <th class="text-r" >经理每天提现限制：</th>
+	  <td>
+	    <foreach name="manager" item="manager" key='key'>
+	  级别：<input type="text" readonly="readonly"  value="<{$manager}>" style="width:200px" class="input-text ">推荐奖限制：<input type="text" name='recommend_<{$key}>' placeholder="" value="<{$recommend_dai[$key]}>" style="width:200px" class="input-text ">元 经理奖限制：<input type="text" name='manager_<{$key}>' placeholder="" value="<{$manager_dai[$key]}>" style="width:200px" class="input-text ">元<br/></br>
+	   </foreach>
+	  </td>
+    </tr>
+	 <tr>
+      <th class="text-r" >会员每次提现限制：</th>
+	  <td>
+	    <foreach name="level" item="level" key='key'>
+	  级别：<input type="text" readonly="readonly"  value="<{$level}>" style="width:200px" class="input-text ">推荐奖限制：<input type="text" name='member_<{$key}>' placeholder="" value="<{$member_dai[$key]}>" style="width:200px" class="input-text ">元  <br/></br>
+	   </foreach>
+	  </td>
+    </tr>
+
+	 <tr>
+      <th class="text-r" >会员提供帮助限制：</th>
+	  <td>
+		 状态：
+		  <label><input name="star_status" value="1" type="radio" <if condition="$setbonus.star_status eq 1">checked='checked'</if>>启用</label>&nbsp;
+		  <label><input name="star_status" value="0" type="radio" <if condition="$setbonus.star_status eq 0">checked='checked'</if>>关闭</label>&nbsp;</br></br>
+	      <foreach name="star" item="star" key='k'>
+		级别：<input type="text" readonly="readonly"  value="<{$star}>" style="width:200px" class="input-text ">&nbsp;&nbsp; 范围限制：<input type="text" name='zuidi_<{$k}>' placeholder="" value="<{$zuidi[$k]}>" style="width:200px" class="input-text ">元  &nbsp;&nbsp;到&nbsp;&nbsp;  <input type="text" name='zuigao_<{$k}>' placeholder="" value="<{$zuigao[$k]}>" style="width:200px" class="input-text ">元 <br/></br>
+	     </foreach>
+	  </td>
+    </tr>
+
+	<tr>
+      <th class="text-r">超时未打款扣除上级奖金：</th><td><input type="text" name='fine' placeholder="" value="<{$setbonus.fine}>" style="width:800px" class="input-text fine"> 元 (从小到大，请用,号隔开 ，如果对应的值不够，默认都按最后一个值扣除。)</td>
+    </tr>
+	<tr>
+      <th class="text-r">无操作空置账号奖金清零：</th><td><input type="text"  name='clearancetime' placeholder="" value="<{$setbonus.clearancetime}>" style="width:200px" class="input-text clearancetime">小时(必须填整数)</td>
+    </tr>
+	<tr>
+      <th class="text-r">打款时间：</th><td><input type="text" name='playingtime' placeholder="" value="<{$setbonus.playingtime}>" style="width:200px" class="input-text playingtime">小时(必须填整数)</td>
+    </tr>
+	<tr>
+      <th class="text-r">收款时间：</th><td><input type="text" name='collectiontime' placeholder="" value="<{$setbonus.collectiontime}>" style="width:200px" class="input-text collectiontime">小时(必须填整数)</td>
+    </tr>
+    <tr>
+      <th class="text-r"></th><td><button  class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i>  确定</button></td>
+    </tr> 
+ 
+  </tbody>
+</table>
+</div>
+	
+</form>
+<include file='common:foot' />

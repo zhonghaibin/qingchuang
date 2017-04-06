@@ -1,0 +1,101 @@
+<include file='Common:header' />
+ <div class="body_Dv">
+  <div class="MessBox" >
+    <div class="divcentent">
+        <div class="new_dv" >
+		<div class="head_title" >
+             <span class=" path left" >账户管理 > 我的团队</span>
+            </div>
+            <div style="padding:20px;">
+                <div style="text-align:center;">
+				<form method="get" action=""  name=''>
+                <span style="color:#4b4b4b">我的团队</span>
+                <input type="text" class="searchtxt mobile"  name='mobile'/>
+                <a class="searchbtn"   onclick='search_group()'>搜索</a><span class='mobile_tip'></span>
+				</form>
+                </div>
+              <!--- <h3 class="member_info">13800138000（已激活，欧阳哄哄）</h3>-->
+            </div>
+
+
+            <div style="margin:0 20px;">
+            <table class="tablebg">
+                        <tbody>
+                            <tr class="datafield">
+                                <th style="border: 1px #fceed1 solid; font-size: 12px;" colspan="7">
+                                    <nobr>我的团队  (直推人数 <{$userinfo.truedirectnum}>)</nobr>
+                                </th>
+
+                            </tr>
+                            <tr class="datalist">
+                                <td style="border: 1px #fceed1 solid; font-size: 12px;">
+                                    <nobr>姓名</nobr>
+                                </td>
+                                <td style="border: 1px #fceed1 solid; font-size: 12px;">
+                                    <nobr>会员级别</nobr>
+                                </td>
+
+                                <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr>手机号</nobr>
+                                </td>
+                                <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr>推荐人数</nobr>
+                                </td>
+                               <!-- <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr>注册人</nobr>
+                                </td>--> 
+								<td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr>状态</nobr>
+                                </td>
+                                <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr>注册时间</nobr>
+                                </td>
+                                
+                            </tr>
+							<volist name='list' id='vo' >
+                            <tr class="datalist">
+                                <td style="border: 1px #fceed1 solid; font-size: 12px;">
+                                    <nobr><{$vo.name}></nobr>
+                                </td>
+                                <td style="border: 1px #fceed1 solid; font-size: 12px;">
+                                    <nobr><{$star[$vo['star']]}></nobr>
+                                </td>
+
+                                <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr><{$vo.mobile}></nobr>
+                                </td>
+                                <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr><{$vo.truedirectnum}></nobr>
+                                </td>
+                               <!-- <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr>周恩去</nobr>
+                                </td>-->
+								<td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr><{$status[$vo['status']]}></nobr>
+                                </td>
+                                <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr><{$vo.regtime|date='Y-m-d H:i:s',###}></nobr>
+                                </td>
+                               
+                            </tr>
+							</volist>
+                           
+                        </tbody>
+                    </table>
+
+				<div class='page'><{$page}></div>
+
+
+        </div>
+  </div>
+
+        </div>
+        
+
+
+
+        </div>
+        </div>
+    
+</body>
+</html>

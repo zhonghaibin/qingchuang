@@ -1,0 +1,233 @@
+﻿/*新闻*/
+.new_dv {background:#fff;padding-bottom:30px;}
+.new_head {line-height:41px;text-indent:19px;border-bottom:1px solid #e5e5e5; }
+.new_list {padding:10px 40px 20px; }
+.new_list li {list-style-type:square;list-style-position:inside;line-height:41px;border-bottom:1px dashed #e5e5e5;}
+.new_list li a:hover{color:red;}
+.new_title { cursor:pointer;overflow:hidden;white-space:nowrap;color:#383838}
+.new_date {float:right;*margin-top:-18px; }
+/*新闻End*/
+
+.page {text-align:center;}
+.page .num{    margin-left: 2px;
+    margin-right: 2px;}
+.page .current{     color: #fff;
+    background-color: #F08200;
+   border: 1px solid #bfbfbf;
+    padding: 7px 12px;
+    display: inline-block;
+    margin-left: 2px;
+    margin-right: 2px;}
+.page a {color:#515151;background-color:#f4f4f4;border:1px solid #bfbfbf;display:inline-block;padding:7px 12px;}
+.page a .current{ color:#fff;background-color:#1f3e74;border:1px solid #1f3e74;padding:7px 12px;}
+
+
+/*我的团队*/
+.searchtxt { height:38px;width:300px;border:1px solid #dcdcdc;border-radius:3px;text-indent:5px;}
+.searchbtn {line-height:38px;background:#27af6a;color:#fff;height:38px;display:inline-block;padding:0 25px;border-radius:6px;cursor:pointer;margin-left:10px;*margin-top:-50px; }
+h3.member_info {text-align:center;margin-top:15px;color:#4b4b4b;font-weight:normal; }
+/*我的团队End*/
+.btn {width:80px; display:block; background:#f08200;font-size:12px;font-weight :normal;color:#fff;float:right;line-height:31px;text-align:center;border-radius:5px;margin-top:5px;margin-right:20px; text-indent:0;cursor:pointer;}
+
+/**************arc********************/
+.arcBox
+{
+    width:998px; margin:10px auto; min-height:450px; overflow:hidden; border:1px solid #dcdcdc;  padding:0 0 25px 0; background:#fff;   position: absolute;z-index: -1;left: 24%;
+}
+.head_title
+{
+     height:45px;  border-bottom:1px solid #dcdcdc; 
+}
+.head_title .path
+{
+    font-size:14px; text-indent:20px; letter-spacing:2px;   height:45px; line-height:45px;  display:block;
+}
+.head_title_tips 
+{
+     width:900px;  margin:10px auto; text-align:center; height:40px; line-height:40px; background:#fff1e2; 
+}
+.UpdaSafe_tips,.UpdaSlef_tips
+{
+      width:400px;  margin:10px auto; text-align:center; height:40px; line-height:40px; background:#fff1e2; 
+}
+.UpdaSafebox{ width:425px; padding:10px 0;  overflow:hidden;}
+.UpdaSafebox .txt_left1, .UpdaSafebox .txt_left2{ /* height:40px;*/ float:left; }
+    .UpdaSafebox .txt_left1
+    {
+        width:120px; line-height:40px; text-align:right;   padding-right:5px;
+    }
+
+    .UpdaSafebox .txt_left2
+    {
+        width:300px; 
+    }
+.UpdaSafebox input
+    {
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+        color: #555;
+        display: block;
+        font-size: 14px;
+        height: 24px;
+        line-height: 1.42857;
+        padding: 6px 12px;
+        transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+        width: 250px;
+    }
+    .UpdaSafebox input.inputtext_yzm
+    {
+        width:120px; float:left; 
+    }
+a.GetYZM
+{
+     width:110px;  height:36px;  display:block; float:left; margin-left:10px; text-align:center; line-height:36px; cursor:pointer; border:1px solid #f08200; border-radius:5px; color:#f08200;
+}
+.mantxtbox
+{
+     width:900px;  margin:10px auto;/*height:40px; */ overflow:hidden;
+}
+    .mantxtbox .txt_left1, .mantxtbox .txt_left2
+    {
+        /*height:40px;*/ float:left; 
+    }
+    .mantxtbox .txt_left1
+    {
+        width:120px; line-height:40px; text-align:right;   padding-right:5px;
+    }
+
+    .mantxtbox .txt_left2
+    {
+        width:305px; 
+    }
+    .mantxtbox input
+    {
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+        color: #555;
+        display: block;
+        font-size: 14px;
+        height: 24px;
+        line-height: 1.42857;
+        padding: 6px 12px;
+        transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+        width: 200px;
+    }
+    
+.body_contents
+{
+    text-align:center; margin:0 auto; width:400px;
+}
+.arc_ms
+{
+    background:#f08200;
+    width:100px;
+    height:30px;
+     display:block;
+     line-height:30px; padding:5px 10px;
+     margin: 0 auto; color:#fff; border-radius:5px; cursor:pointer
+}
+.UpdaSafe
+{
+    width:425px;  margin-left:50px; overflow:hidden;
+}
+.UpdaSlef
+{
+     width:425px;  margin-right:50px; overflow:hidden;
+}
+
+
+/*******************/
+.MessBox
+{
+    width:998px; overflow:hidden; /*margin:10px auto;  border:1px solid #dcdcdc; */ background:#fff;
+}
+.head_title
+{
+     height:45px;  border-bottom:1px solid #dcdcdc;  overflow:hidden; margin-bottom:25px;
+}
+.head_title .path
+{
+    font-size:14px; text-indent:20px; letter-spacing:2px;   height:45px; line-height:45px;  display:block;
+}
+    .head_title .pathbtn
+    {
+           height:35px; line-height:35px; display:block ; padding:0 10px; margin-top:5px; background-color:#f08200; color:#fff; border-radius:5px; margin-right:10px; cursor:pointer
+    }
+
+.body_content
+{
+    width:998px; overflow:hidden; clear:both; padding:10px 0;
+}
+.body_contents
+{
+    text-align:center;
+}
+.send_ms
+{
+    background:#27af6a;
+    width:100px;
+    height:30px;
+     display:block;
+     line-height:30px; padding:5px 10px;
+     margin: 0 auto; color:#fff; border-radius:5px; cursor:pointer
+}
+.mess_left_title
+{
+    width:380px; text-align:right; height:40px; line-height:40px; 
+}
+.mess_right_title .inputtext,.mess_right_title  select
+{
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555;
+    display: block;
+    font-size: 14px;
+    height: 24px;
+    line-height: 1.42857;
+    padding: 6px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width:250px;
+    
+}
+.mess_right_title select
+{
+    height:35px; width:270px;
+}
+.mess_right_title .inputtext:focus {
+    border-color: #66afe9;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+    outline: 0 none;
+}
+.checkboxdiv
+{
+    text-align:center; 
+}
+a.checkbtn
+{
+     width:70px;  height:36px;  display:block; float:left; margin-left:10px; text-align:center; line-height:36px; cursor:pointer; border:1px solid #f08200; border-radius:5px; color:#f08200;
+}
+.mantxtbox input:focus {
+    border-color: #66afe9;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+    outline: 0 none;
+}
+.UpdaSafebox input:focus {
+    border-color: #66afe9;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+    outline: 0 none;
+}
+.searchtxt:focus {
+    border-color: #66afe9;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+    outline: 0 none;
+}
+

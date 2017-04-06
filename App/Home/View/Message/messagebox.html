@@ -1,0 +1,71 @@
+<include file='Common:header' />
+    <div class="body_Dv">
+    <div class="MessBox">
+	<div class="head_title" >
+             <span class=" path left" >信息 > 信件箱</span><a class="btn" href="<{:U('Message/message')}>">撰写信息</a>
+            </div>
+   
+            <div style="margin:20px;">
+            <table class="tablebg">
+                        <tbody>
+                            <tr class="datafield">
+                                <th style="border: 1px #fceed1 solid; font-size: 12px;" colspan="5">
+                                    <nobr>信件箱</nobr>
+                                </th>
+                            </tr>
+                            <tr class="datalist">
+                                <td style="border: 1px #fceed1 solid; font-size: 12px;" width='10'>
+                                    <nobr>编号</nobr>
+                                </td>
+                                <td style="border: 1px #fceed1 solid; font-size: 12px;">
+                                    <nobr>主题</nobr>
+                                </td>
+								<td style="border: 1px #fceed1 solid; font-size: 12px;" width='120'>
+                                    <nobr>状态</nobr>
+                                </td>
+                                <td style="font-size: 12px; border: 1px #fceed1 solid;" width='120'>
+                                    <nobr>日期</nobr>
+                                </td>
+                                <td style="font-size: 12px; border: 1px #fceed1 solid;" width='120'>
+                                    <nobr>操作</nobr>
+                                </td>
+                            </tr>
+							<volist name='list' id='vo'>
+                            <tr class="datalist">
+                                <td style="border: 1px #fceed1 solid; font-size: 12px;">
+                                    <nobr><{$i}></nobr>
+                                </td>
+                                <td style="border: 1px #fceed1 solid; font-size: 12px;">
+                                    <nobr><{$vo.subject}></nobr>
+                                </td>
+                                <td style="border: 1px #fceed1 solid; font-size: 12px;">
+                                    <nobr><if condition='$vo["status"] eq 1'>未读<elseif condition='$vo["status"] eq 2' />未回复<else/>已回复</if></nobr>
+                                </td>
+                                <td style="font-size: 12px; border: 1px #fceed1 solid;" >
+                                    <nobr><{$vo.addtime|date='Y-m-d H:i:s',###}></nobr>
+                                </td>
+                                  <td style="font-size: 12px; border: 1px #fceed1 solid;" >
+                                    <nobr><a  href="<{:U('Home/Message/messagepage/',array('id'=>$vo['id']))}>" >查看</a></nobr>
+                                </td>
+                            </tr>
+                             </volist>
+                            
+                               
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+			<div class='page'><{$page}></div>
+
+        </div>
+
+
+        
+
+
+
+        </div>
+        </div>
+</body>
+</html>

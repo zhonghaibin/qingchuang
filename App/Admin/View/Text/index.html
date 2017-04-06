@@ -1,0 +1,174 @@
+<include file='Common:head' />
+<title>系统匹配列表</title>
+</head>
+<body> 
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 匹配管理 <span class="c-gray en">&gt;</span> 系统匹配列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="pd-20">
+
+  <table class="table table-border table-bordered table-bg  table-sort" >
+  <form method="post" action="__SELF__">
+  <tr>
+	<td  style='text-align:center;width:50%'>提供赞助：  日期范围: <input type="text" onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'logmax\')||\'%y-%M-%d\'}'})" id="logmin" class="input-text Wdate" style="width:120px;"
+	value="<{$arr['search_starttime_c']}>" name='search_starttime_c' >
+    -
+    <input type="text" onFocus="WdatePicker({minDate:'#F{$dp.$D(\'logmin\')}',maxDate:'%y-%M-%d'})" id="logmax" class="input-text Wdate" style="width:120px;"  name='search_endtime_c' value="<{$arr['search_endtime_c']}>">
+
+	
+	</td>
+	<td style='text-align:center;width:50%'>申请赞助：  日期范围: 
+	<input type="text" onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'logmax\')||\'%y-%M-%d\'}'})" id="logmin" class="input-text Wdate" style="width:120px;" value="<{$arr['search_starttime_r']}>" name='search_starttime_r' >
+    -
+    <input type="text" onFocus="WdatePicker({minDate:'#F{$dp.$D(\'logmin\')}',maxDate:'%y-%M-%d'})" id="logmax" class="input-text Wdate" style="width:120px;"  name='search_endtime_r' value="<{$arr['search_endtime_r']}>">&nbsp;<button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i>搜索</button>
+	</td>
+  </tr></form>
+  <tr>
+	<td ><span class="r">共有数据：<strong><{$count_c}></strong> 条</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<span class='c_tip'></span>&nbsp;
+	<span class="l">共有：<strong><{$sum_c}></strong> 金额</span></td>
+	<td ><span class="r">共有数据：<strong><{$count_r}></strong> 条</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<span class='r_tip'>&nbsp;</span><span class="l">共有：<strong><{$sum_r}></strong> 金额</span></td>
+  </tr>
+  <tr>
+  <form method="post" action="__SELF__">
+
+	<td style='vertical-align: top;'>
+	<table class="table table-border table-bordered table-bg table-hover table-sort" >
+      <tr class="text-c">
+        <th><input name="" type="checkbox" class='c_check' onclick="All(this,'c_id[]')" value=""></th>
+        <th>ID</th> 
+		<th>账号</th>
+		<th>星级</th>
+        <th>用户名</th>
+        <th>金额</th>
+        <th>剩余金额</th>
+        <th>创建时间</th>
+      </tr>
+ 
+    <tbody>
+	<volist name='list_c' id='vo'>
+      <tr class="text-c">
+        <td><input name="c_id[]" type="checkbox" value="<{$vo.id}>" class='c_check'></td>
+        <td><{$vo.id}></td>
+        <td><{$vo.username}></td> 
+		<td><{$vo.stars}></td>
+		<td><{$vo.name}></td>
+        <td><{$vo.money}></td>
+        <td><{$vo.sum}></td>
+        <td><{$vo.create_date|date='Y-m-d H:i:s',###}></td>
+      </tr>
+	</volist>
+    </tbody>
+  </table>
+	</td>
+	<td style=' vertical-align: top'>
+	<table class="table table-border table-bordered table-bg table-hover table-sort"  >
+    
+      <tr class="text-c">
+        <th><input name="" type="checkbox" value=""  onclick="All(this,'r_id[]')" class='r_check'></th>
+        <th>ID</th>
+		<th>账号</th>
+		<th>星级</th>
+        <th>用户名</th>
+        <th>金额</th>
+        <th>剩余金额</th>
+        <th>创建时间</th>
+      </tr>
+   
+    <tbody>
+	<volist name='list_r' id='vo'>
+      <tr class="text-c">
+        <td><input name="r_id[]" type="checkbox" value="<{$vo.id}>" class='r_check'></td>
+        <td><{$vo.id}></td> 
+		<td><{$vo.username}></td>
+		<td><{$vo.stars}></td> 
+		<td><{$vo.name}></td>
+        <td><{$vo.money}></td>
+        <td><{$vo.sum}></td>
+        <td><{$vo.create_date|date='Y-m-d H:i:s',###}></td>
+      </tr>
+	</volist>
+    </tbody>
+  </table>
+	</td>
+  </tr>
+  <tr>
+  <input type='hidden' name='flag' value='matching'>
+	<td colspan='2' style='text-align:center;'><button name="" id="button" class="btn btn-success" type="submit">提交</button></td>
+  </tr>
+  </table>
+   
+</div>
+
+	
+</form>
+<include file='Common:foot' />
+<script type="text/javascript">
+	function All(e, itemName){
+		var aa = document.getElementsByName(itemName);
+	    for (var i=0; i<aa.length; i++)
+	    aa[i].checked = e.checked; //得到那个总控的复选框的选中状态
+	}
+	function Item(e, allName){
+		var all = document.getElementsByName(allName)[0];
+		if(!e.checked) all.checked = false;
+		else{
+			var aa = document.getElementsByName(e.name);
+			for (var i=0; i<aa.length; i++)
+			if(!aa[i].checked) return;
+			all.checked = true;
+		}
+	}
+	$(function(){
+      $(".c_check").click(function() {  
+      var c_check= $("input[name='c_id[]']:checked").serialize();
+	
+		$.ajax({ 
+				type:"get", 
+				url:"/Admin/Text/c_check_sum", 
+				data: {c_check:c_check}, 
+				dataType: 'json', 
+				async : false,//设置为同步操作就可以给全局变量赋值成功 
+				success:function(data){ 
+					$('.c_tip').html("<span style='color:#d00000;width:auto;'>"+data.msg+"</span>");
+				}
+				});
+
+
+      });  
+	 $(".r_check").click(function() {  
+		var r_check= $("input[name='r_id[]']:checked").serialize();
+		$.ajax({ 
+				type:"get", 
+				url:"/Admin/Text/r_check_sum", 
+				data: {r_check:r_check}, 
+				dataType: 'json', 
+				async : false,//设置为同步操作就可以给全局变量赋值成功 
+				success:function(data){ 
+					$('.r_tip').html("<span style='color:#d00000;width:auto;'>"+data.msg+"</span>");
+				}
+				});
+
+
+      });
+
+
+		
+	  	$("#button").click(function(){
+
+		if($("#button").css("display")=="none"){
+
+		$("#button").show();
+
+		}else{
+
+		 $("#button").hide();
+				
+				layer.msg('请不要刷新页面，等待页面自动跳转',{icon: 1,time:5500}); 		
+				
+
+		}
+
+		});
+
+});  
+</script>

@@ -1,0 +1,122 @@
+﻿.info{ width:1000px; height:40px;line-height:40px; font-size:12px; font-weight:bold; color:#474747;  }
+.warning{border:1px solid #facd89;height:40px;line-height:40px;width:998px; background:#fceed1; }
+.warning_box{width:500px; margin:0 auto;}
+.warning_box span{ color:#ff0000; font-weight:bold; font-size:16px;}
+.divcentent{ width:1000px; margin:0 auto;*margin:0;}
+
+.block{ display:block;}
+
+a,a:link,a:active
+{
+    text-decoration:none;
+}
+.notweight
+{
+    font-weight:100;
+}
+.bannerbox
+{
+    padding:10px 0; overflow:hidden; clear:both;
+}
+.gnxanniu
+{
+    width:1000px; overflow:hidden;
+}
+.gnxanniu .sup,.gnxanniu .acc
+{
+     width:495px; height:70px; display:block; font-size:20px; font-weight:bold; color:#fff; text-align:center; line-height:70px; border-radius:5px; cursor:pointer; text-decoration:none;
+}
+.gnxanniu .sup
+{
+    background:#27af6a;
+}
+.gnxanniu .acc
+{
+    background:#f08200;
+}
+.col-md-12
+{
+    width:998px; border:1px solid #e5e5e5;
+}
+.w_l_123
+{
+    width:998px; height:40px;  overflow:hidden;
+}
+    .w_l_123 .text_tips
+    {
+        width:300px; height:40px; padding:2px 0; overflow:hidden; font-weight:bold; font-size:14px; line-height:40px; text-indent:25px;
+    }
+    .w_l_123 .inp
+    {
+        width:698px; height:40px; padding:2px 0; overflow:hidden; font-weight:bold; font-size:14px; line-height:40px;
+    }
+        .w_l_123 .inp input.input_texts
+        {
+            background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555;
+    display: block;
+    font-size: 14px;
+    height: 34px;
+    line-height: 1.42857;
+    padding: 6px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width:450px;
+             
+        }
+
+
+.w_l_123 .inp input.input_texts:focus {
+    border-color: #66afe9;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+    outline: 0 none;
+}
+
+.w_l_123 .inp input.input_texts::-moz-placeholder {
+    color: #999;
+    opacity: 1;
+}
+
+
+.aceptlist { border: solid 1px #fff; height: 165px; border-radius: 4px; margin: 4px 0 8px 0; padding: 17px; }
+.sup_1
+{
+    background-color:#27af6a;
+}
+.sup_2
+{
+    background-color:#f08200;
+}
+.aceptlistinfo p { padding: 1.5px; font-size: 14px;  color:#fff;}
+.aceptlist span strong{color:#fff;}
+
+.pageul { margin: 12px 12px 12px 166px; }
+.pageul ul li { float: left; border: solid 1px #d2d2d2; padding: 2px 12px; text-align: center; margin: 2px; color: #535353; font-size: 13px; }
+.pageul_ul_li_active { background-color: #d42e1e; color: #fff; }
+.aceptpageul { margin: 10px; }
+.aceptpageul ul li { float: left; border: solid 1px #d2d2d2; padding: 2px 6px; text-align: center; margin: 2px; color: #535353; font-size: 13px; }
+.aceptpageul_ul_li_active { background-color: #d42e1e; color: #fff; }
+
+.providehelplist_a { border: solid 1px #3e9e04; height: 130px; background-color: #b0f884; border-radius: 4px; margin: 4px 0; padding: 17px; }
+.providehelplist_a_div { height: 40px; line-height: 40px; border-bottom: solid 1px #d2d2d2; }
+.providehelplist_a_more { border: 1px solid #f07663; border-radius: 4px; color: #d42e1e; display: block; float: right; font-size: 12px; height: 24px; line-height: 24px; padding: 0; text-align: center; width: 73px; margin-top: 3px; background-color:#ffe2df; }
+.providehelplist_b { border: solid 1px #e0b300; height: 130px; background-color: #fff7a2; border-radius: 4px; margin: 4px 0; padding: 17px; }
+
+.othermoney{color: #d42e1e; font-weight:bold; font-size:16px}
+
+/*#region 表格 */
+.tablebg{width:100%;line-height:28px;border-top:1px solid #f9f9f9;color:#666;height:24px;line-height:24px;margin:0 auto;margin-bottom:20px;background:#fff;}
+.tablebg a{color:#006dcc}
+.tablebg td,.tablebg th{border-bottom:1px solid #eee;padding:7px 5px;font-size:14px;text-align:center}
+.tbval{width:270px}
+.tablebg th{font-weight:700}
+.tablebg .tbkey{width:32%;text-align:right;padding:10px 4px;background-color:#f9f9f9;color:#666}
+.tablebg .tbval{text-align:left}
+.tablebg .datafield td,.tablebg .datafield th{color:#666;background:#ededed;font-size:14px;font-weight:700;text-align:center}
+#blanc_red .tablebg .datafield td,.tablebg .datafield th{background:#fceed1}
+.tablebg .datalist td{border-left:1px solid #eee}
+/*#endregion */
+

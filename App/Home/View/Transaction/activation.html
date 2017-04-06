@@ -1,0 +1,134 @@
+﻿<include file='Common:header' />
+<form method="get" action="">
+	{__TOKEN__}
+    <div class="body_Dv">
+    <div class="MessBox" >
+         <div class="head_title" >
+             <span class=" path left" >账户管理 > 激活币管理</span>
+         </div>
+
+       <div class="body_content" >
+            <div class="mess_left_title left" >
+                转账至：
+            </div>
+            <div class="mess_right_title left" >
+                <input type="text" class="inputtext left mobile" name='mobile' placeholder="手机号" /> <a class="checkbtn check_username" >检查</a>&nbsp;&nbsp;&nbsp;<span class='mobile_tip' style='height:30px;line-height:38px;'></span>
+            </div>
+        </div>
+       <div class="body_content" >
+            <div class="mess_left_title left" >
+                转账款额：
+            </div>
+            <div class="mess_right_title left" >
+                <input type="text" class="inputtext left pin" name='pin' />&nbsp;&nbsp;&nbsp;<span class='pin_tip' style='height:30px;line-height:38px;'></span>
+            </div>
+        </div>
+        <div class="body_content" style="height:25px; line-height:25px;" >
+            <div class="mess_left_title left" style="height:25px; line-height:25px;" >
+               
+            </div>
+            <div class="mess_right_title left" style=" color:#8f8f8f; height:25px; line-height:25px;" >
+               您当前激活币为：<font color="f08200" ><{$userinfo.pin}></font> 个
+            </div>
+        </div>
+        <div class="body_content body_contents" >
+            <a class="send_ms pin_subtn" >确认转账</a>
+        </div>
+   </div>
+        </div>
+	
+</form>
+</body>
+</html>
+<script type="text/javascript">
+	function isLegal(str){
+		if(/[!,#,$,%,^,&,*,?,~,\\,|,;,",<,>,(,),+,.,\s+]/gi.test(str)) return false;
+			var str1 = str.toLowerCase()
+			if(str1.indexOf("script") >= 0 || str1.indexOf("select") >= 0 || str1.indexOf("update") >= 0 || str1.indexOf("delete") >= 0 || str1.indexOf("insert") >= 0 || str1.indexOf("insert") >= 0 || str1.indexOf("drop") >= 0 || str1.indexOf("truncate") >= 0 || str1.indexOf("union") >= 0 || str1.indexOf("user") >= 0 || str1.indexOf("load_file") >= 0 || str1.indexOf("outfile") >= 0)
+			{
+				return false;
+			}
+			return true;
+		}
+	function strLength(as_str){
+		return as_str.replace(/[^\x00-\xff]/g, 'xx').length;
+	}	
+	
+	function check_username(){
+		var mobile=$.trim($('.mobile').val());
+		telreg =  /^(1)[0-9]{10}$/;
+		if(telreg.test(mobile)){
+		  $('.mobile_tip').html('');
+		}else{
+			$('.mobile_tip').html('<span style="color:#d00000;">请输入手机号码</span>');
+			flag=false;
+		}
+		return flag;
+	}
+	//检查手机格式
+	function check_mobile(){
+		var mobile=$.trim($('.mobile').val());
+		telreg =  /^(1)[0-9]{10}$/;
+		if(telreg.test(mobile)){
+			 $.ajax({ 
+				type:"post", 
+				url:"/Home/Transaction/check_mobile", 
+				data: {mobile:mobile}, 
+				dataType: 'json', 
+				async : false,//设置为同步操作就可以给全局变量赋值成功 
+				success:function(data){ 
+					if(data.status==1){
+						flag=false;
+					}else{
+						flag=true;
+					}
+					$('.mobile_tip').html(data.msg);
+				}
+				}); 
+		}else{
+			$('.mobile_tip').html('<span style="color:#d00000;">请输入手机号码</span>');
+			flag=false;
+		}
+		return flag;
+	}
+	//检查币
+	function check_pin(){
+		var pin=$('.pin').val();
+		if(pin){
+			var regpin = new RegExp("^[0-9]+$");
+			if(regpin.test(pin)){
+				flag=true;
+			}else{
+				$('.pin_tip').html('<span style="color:#d00000;">格式不正确</span>');
+				flag=false;
+			}
+			
+		}else{
+			$('.pin_tip').html('<span style="color:#d00000;">请输入激活币</span>');
+			flag=false;
+		}
+		return flag;
+	}
+
+	$(function(){
+
+		
+		$('.mobile').blur(function(){
+			check_username();
+		});
+		$('.pin').blur(function(){
+			 check_pin();
+		});
+		$('.pin_subtn').click(function(){
+			var flag=check_username();
+			var flag1= check_pin();
+			if(flag&& flag1){
+				pin_save();
+			}
+		});
+		$('.check_username').click(function(){
+
+			check_mobile();
+		});
+	});
+</script>

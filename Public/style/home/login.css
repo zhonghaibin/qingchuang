@@ -1,0 +1,5 @@
+﻿.Login_1box { width: 387px; border: 1px solid #fc8800; border-radius:4px;  position:absolute; left:50%; margin-left:-193.5px; top:38%; padding: 1px; background-color: white;}
+.Login_2box {   padding:10px 34px 14px 34px; }
+.LoginInput{ padding-bottom: 17px;}
+p.l_tips {  width:100%; overflow:hidden; height:35px; line-height:35px; }
+.Login_2box .inputstyle {  width: 90%; line-height: 41px;  height: 41px; color: #505050;  padding:0 5%; background-color:#f1f1f1; border:1px solid #e8e8e8 ; border-radius:4px;}

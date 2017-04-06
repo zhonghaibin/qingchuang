@@ -1,0 +1,75 @@
+﻿<include file='Common:head' />
+<title>管理员列表</title>
+</head>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span>  管理员管理<span class="c-gray en">&gt;</span> 节点管理<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="pd-20">
+  <div class="text-c">
+    <form class="Huiform" method="post" action="__SELF__" target="_self">
+	 <span class="select-box" style='width:200px;'>
+	  <select  class='select' name="pid" size="1">
+        <option value="0">栏目标题</option>
+		<volist name='list1' id='vo1'>
+		
+		<option value="<{$vo1.id}>">&nbsp;<{$vo1.name}></option>
+		<volist name='list2' id='vo2'>
+		<if condition='$vo1["id"] eq $vo2["pid"]'>
+		<option value="<{$vo2.id}>">&nbsp;├ <{$vo2.name}></option>
+		</if>
+		</volist>
+		</volist>
+      </select>
+	  </span>
+      <input type="text" placeholder="节点名称" name='name' autocomplete="off" value="" class="input-text" style='width:150px;'>
+      <input type="text" placeholder="字段名" name='control_action' autocomplete="off" value="" class="input-text" style='width:150px;'>
+      <button type="button" class="btn btn-success" id="" name="" onClick="admin_permission_add();"><i class="Hui-iconfont">&#xe600;</i>添加权限节点</button>
+    </form>
+  </div>
+  <div class="cl pd-5 bg-1 bk-gray mt-20">
+    <span class="l"><a href="javascript:;" onClick="datadel_power()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a></span>
+    <span class="r">共有数据：<strong><{$count}></strong> 条</span>
+  </div>
+  <table class="table table-border table-bordered table-bg">
+    <thead>
+      <tr>
+        <th scope="col" colspan="7">权限节点</th>
+      </tr>
+      <tr class="text-c">
+        <th width="25"><input type="checkbox" name="" value=""></th>
+        <th width="40">ID</th>
+        <th width="200">节点名称</th>
+		<th>字段名</th>
+		<th width="200">父级ID</th>
+		<th width="200">排序</th>
+        <th width="70">操作</th>
+      </tr>
+    </thead>
+    <tbody>
+	<volist name='list' id='vo'>
+      <tr class="text-c">
+        <td><input type="checkbox"value="<{$vo.id}>" name="delid_power"></td>
+        <td><{$vo.id}></td>
+        <td><{$vo.name}></td>
+        <td><{$vo.control_action}></td>
+		<td><{$vo.pid}></td>
+		<td><{$vo.sort}></td>
+        <td class="f-14">
+		<a title="编辑" href="javascript:;" onClick="power_edit('<{$vo.id}>','460','450','节点信息编辑','<{:U('Admin/Rbac/poweredit')}>')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> 
+		<a title="删除" href="javascript:;" onClick="admin_permission_del(this,<{$vo.id}>)" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+      </tr>
+     </volist>
+    </tbody>
+  </table>
+   <div id="pageNav" class="pageNav"><{$page}></div>
+  
+</div>
+<include file='Common:foot' />
+<script>
+function admin_permission_add()
+{
+		
+		$('.Huiform').submit();
+
+
+}
+</script>

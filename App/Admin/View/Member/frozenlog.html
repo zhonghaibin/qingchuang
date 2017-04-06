@@ -1,0 +1,40 @@
+<include file='Common:head' />
+<title>用户列表</title>
+</head>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户管理 <span class="c-gray en">&gt;</span> 冻结日志 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="page-container">
+<form method="post" action="__SELF__">
+	<div class="text-c"> 
+    <input type="text" class="input-text" style="width:250px" placeholder="输入账号" id="" value="<{$arr['search_username']}>" name="search_username" ><button type="submit" class="btn btn-success" id="" ><i class="Hui-iconfont">&#xe665;</i> 搜用户</button></form>
+	
+	</div></form>
+	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="r">共有数据：<strong><{$count}></strong> 条</span> </div>
+	<div class="mt-0">
+	<table class="table table-border table-bordered table-hover table-bg ">
+		<thead>
+			<tr class="text-c">
+			<th width="">ID</th>
+			<th width="">账号</th>
+			<th width="">姓名</th>
+			<th width="">原因</th>
+			<th width="">时间</th>
+			</tr>
+		</thead>
+		<tbody>
+		<volist name='list' id='vo'>
+		<tr class="text-c">
+        <td><{$i}></td>
+        <td><{$vo.username}></td>
+		<td><{$vo.name}></td>
+        <td><{$vo.value}></td>
+        <td><{$vo.create_date|date='Y-m-d H:i:s',###}></td>
+      </tr>
+	  </volist>
+	 
+	  </tbody>
+	</table>  
+	<div id="pageNav" class="pageNav"><{$page}></div>
+	</div>
+</div>
+<include file='Common:foot' />

@@ -1,0 +1,162 @@
+<include file='Common:header' />
+    <div class="body_Dv">
+   <div class="MessBox" >
+    <div class="divcentent">
+        <div class="new_dv" >
+		<div class="head_title" >
+             <span class=" path left" >账户管理 > 提供与帮助记录</span>
+            </div>
+            <div style="margin:20px;">
+            <table class="tablebg">
+                        <tbody>
+                            <tr class="datafield">
+                                <th style="border: 1px #fceed1 solid; font-size: 12px;" colspan="7">
+                                    <nobr>团队的舍</nobr>
+                                </th>
+
+                            </tr>
+                            <tr class="datalist">
+                                <td style="border: 1px #fceed1 solid; font-size: 12px;">
+                                    <nobr>编号</nobr>
+                                </td>
+                                <td style="border: 1px #fceed1 solid; font-size: 12px;">
+                                    <nobr>金额</nobr>
+                                </td>
+								<td style="border: 1px #fceed1 solid; font-size: 12px;">
+                                    <nobr>未匹配金额</nobr>
+                                </td>
+                                <td style="border: 1px #fceed1 solid; font-size: 12px;">
+                                    <nobr>下单时间</nobr>
+                                </td>
+
+                                <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr>下单天数</nobr>
+                                </td>
+                              
+                                <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr>用户</nobr>
+                                </td>
+                                <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr>状态</nobr>
+                                </td>
+                               
+                                
+                            </tr>
+                          
+
+							<volist name='c_list' id='vo'>
+                            <tr class="datalist">
+                                <td style="border: 1px #fceed1 solid; font-size: 12px;">
+                                    <nobr><{$vo.eg}></nobr>
+                                </td>
+                                <td style="border: 1px #fceed1 solid; font-size: 12px;">
+                                    <nobr><{$vo.money}></nobr>
+                                </td>
+								<td style="border: 1px #fceed1 solid; font-size: 12px;">
+                                    <nobr><{$vo.sum}></nobr>
+                                </td>
+                                <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr><{$vo.create_date|date='Y-m-d H:i:s',###}></nobr>
+                                </td>
+                                <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr><{$vo.lineup_date}></nobr>
+                                </td>
+                                <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr><{$vo.name}></nobr>
+                                </td>
+                                
+                               <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr><{$cstatus[$vo[status]]}></nobr>
+                                </td>
+                              
+                            </tr>
+							</volist>
+                           
+                           
+                        </tbody>
+                    </table>
+
+			<div class='page'>
+			<{$page}>
+			</div>
+        </div>
+
+
+            <div style="margin:20px;">
+            <table class="tablebg">
+                        <tbody>
+                            <tr class="datafield">
+                                <th style="border: 1px #fceed1 solid; font-size: 12px;" colspan="8">
+                                    <nobr>团队的得</nobr>
+                                </th>
+
+                            </tr>
+                            <tr class="datalist">
+                                <td style="border: 1px #fceed1 solid; font-size: 12px;">
+                                    <nobr>编号</nobr>
+                                </td>
+                                <td style="border: 1px #fceed1 solid; font-size: 12px;">
+                                    <nobr>金额</nobr>
+                                </td>
+								<td style="border: 1px #fceed1 solid; font-size: 12px;">
+                                    <nobr>未匹配金额</nobr>
+                                </td>
+                                <td style="border: 1px #fceed1 solid; font-size: 12px;">
+                                    <nobr>下单时间</nobr>
+                                </td>
+                                <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr>用户</nobr>
+                                </td>
+                                <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr>匹配状态</nobr>
+                                </td>
+                              
+                                
+                            </tr>
+							<volist name='r_list' id='vo'>
+                            <tr class="datalist">
+                                <td style="border: 1px #fceed1 solid; font-size: 12px;">
+                                    <nobr><{$vo.eg}></nobr>
+                                </td>
+                                <td style="border: 1px #fceed1 solid; font-size: 12px;">
+                                    <nobr><{$vo.money}></nobr>
+                                </td>
+
+                                <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr><{$vo.sum}></nobr>
+                                </td>
+                                <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr><{$vo.create_date|date='Y-m-d H:i:s',###}></nobr>
+                                </td>
+								<td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr><{$vo.name}></nobr>
+                                </td>
+                            
+                               <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr><{$rstatus[$vo[status]]}></nobr>
+                                </td>
+                             
+                            </tr>
+                          	</volist>
+                           
+                           
+                        </tbody>
+                    </table>
+
+
+			<div class='page'>
+			<{$pages}>
+			</div>
+
+        </div>
+ </div>
+
+        </div>
+        
+
+
+
+        </div>
+        </div>
+</body>
+</html>

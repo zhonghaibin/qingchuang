@@ -1,0 +1,83 @@
+<include file='Common:head' />
+<title>系统匹配报告</title>
+</head>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 报告管理 <span class="c-gray en">&gt;</span> 系统匹配报告<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<form method="get" action="__SELF__">
+<div class="pd-20">
+  <div class="text-c"> 
+      
+	<label><input name="search_status" value="1" type="radio"  <if condition='$arr["search_status"] eq 1'> checked <elseif  condition="$Think.get.search_status eq 1" />checked </if>>等待付款</label>&nbsp;
+    <label><input name="search_status" value="2" type="radio"  <if condition='$arr["search_status"] eq 2'> checked <elseif  condition="$Think.get.search_status eq 2" />checked </if>> 等待确认</label>&nbsp; 
+	<label><input name="search_status" value="3" type="radio"  <if condition='$arr["search_status"] eq 3'> checked <elseif  condition="$Think.get.search_status eq 3" />checked </if>>交易完成</label>&nbsp; 
+	<label><input name="search_status" value="4" type="radio"  <if condition='$arr["search_status"] eq 4'> checked <elseif  condition="$Think.get.search_status eq 4" />checked </if>>拒绝</label>&nbsp;
+	<label><input name="search_status" value="5" type="radio"  <if condition='$arr["search_status"] eq 5'> checked <elseif  condition="$Think.get.search_status eq 5" />checked </if>>24小时过期</label>&nbsp;
+	<label><input name="search_status" value="6" type="radio"  <if condition='$arr["search_status"] eq 6'> checked <elseif  condition="$Think.get.search_status eq 6" />checked </if>>没确认过期</label>
+	&nbsp;&nbsp;&nbsp;
+    日期范围：<input type="text" onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}'})" id="datemin" name='search_starttime' class="input-text Wdate" style="width:120px;" value="<{$arr['search_starttime']}>">
+    -
+    <input type="text" onFocus="WdatePicker({minDate:'#F{$dp.$D(\'datemin\')}',maxDate:'%y-%M-%d'})" name='search_endtime' id="datemax" class="input-text Wdate" style="width:120px;" value="<{$arr['search_endtime']}>">
+   <button type="submit" class="btn btn-success" id="" ><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
+
+  </div>
+  </form>
+  
+  <div class="cl pd-5 bg-1 bk-gray mt-20">
+ 
+    <span class="r">共有数据：<strong><{$count}></strong> 条</span>
+  </div>
+  <table class="table table-border table-bordered table-hover table-bg table-sort">
+    <thead>
+      <tr class="text-c">
+      
+        <th width="30">ID</th>
+		<th width="115">流水号</th>
+		<th width="115">舍-流水号</th>
+		<th width="115">得-流水号</th>
+        <th width="">舍-账号</th>
+        <th width="">舍-姓名</th>
+		<th width="">得-账号</th>
+        <th width="">得-姓名</th>
+        <th width="">本金</th>
+        <th width="">状态</th>
+		<th width="80">创建日期 </th>
+		<if condition='$arr["search_status"] eq 3'>
+		<th width="160">完成日期 </th> 
+		</if> 
+
+         <if condition='$arr["search_status"] eq 1 or $arr["search_status"] eq 2 or $arr["search_status"] eq 4 or $arr["search_status"] eq 5 or $arr["search_status"] eq 6 '>
+        <th width="160">操作</th>
+		</if>
+      </tr>
+    </thead>
+    <tbody>
+	<volist name='list' id='vo'>
+      <tr class="text-c">
+       
+        <td><{$i}></td>
+		<td><{$vo.cr_eg}></td>
+		<td><{$vo.c_eg}></td>
+		<td><{$vo.r_eg}></td>
+		<td><{$vo.c_username}></td>
+		<td><{$vo.c_name}></td>
+		<td><{$vo.r_username}></td>
+        <td><{$vo.r_name}></td>
+        <td><{$vo.sum}></td>
+		<td><{$status[$vo["status"]]}></td>
+        <td><{$vo.create_date|date='Y-m-d',###}></td>
+		<if condition='$arr["search_status"] eq 3'>
+		<td><{$vo.finish_date|date='Y-m-d H:i:s',###}></td> 
+		</if> 
+        <if condition='$arr["search_status"] eq 1 or $arr["search_status"] eq 2 or $arr["search_status"] eq 4 or $arr["search_status"] eq 5 or $arr["search_status"] eq 6 '>
+        <td class="user-status"> 
+		<a title="罚款推荐人" href="javascript:;" onClick="fine_recommend(<{$vo.recommend}>,<{$vo.c_user_id}>)" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6b7;</i> 罚款推荐人</a>	
+		<a title="撤单" href="javascript:;" onClick="cr_del(this,<{$vo.id}>)" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe66b;</i>  取消订单</a>
+		</td>
+		</if>
+      </tr>
+	  </volist>
+    </tbody>
+  </table>
+  <div id="pageNav" class="pageNav"><{$page}></div>
+</div>
+<include file='Common:foot' />

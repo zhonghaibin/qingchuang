@@ -1,0 +1,55 @@
+<include file='Common:head' />
+<title>用户查看</title>
+</head>
+<body>
+<div class="cl pd-20" style=" background-color:#5bacb6">
+  <img class="avatar avatar-XL l" src="__PUBLIC__/H-ui/static/h-ui/images/user.png">
+  <dl style="margin-left:80px; color:#fff">
+    <dt><span class="f-18">账号：<{$member_row.username}></span> <!--<span class="pl-10 f-12">推荐人：<{$member_row.recommend}></span>--></dt>
+    <dd class="pt-10 f-12" style="margin-left:0"></dd>
+  </dl>
+</div>
+<div class="pd-20">
+  <table class="table">
+    <tbody>
+	  <tr>
+        <th class="text-r">推荐人：</th>
+        <td><{$member_row.recommend}></td>
+      </tr>
+      <tr>
+        <th class="text-r">手机：</th>
+        <td><{$member_row.mobile}></td>
+      </tr>
+      <tr>
+        <th class="text-r">支付宝：</th>
+        <td><{$member_row.alipay}></td>
+      </tr>
+	  <tr>
+        <th class="text-r">姓名：</th>
+        <td><{$member_row.name}></td>
+      </tr>
+	  <tr>
+        <th class="text-r">银行卡号：</th>
+        <td><{$member_row.bankno}></td>
+      </tr>
+	  <tr>
+        <th class="text-r">银行名称：</th>
+        <td><{$member_row.bank}></td>
+      </tr>
+      <tr>
+        <th class="text-r">注册时间：</th>
+        <td><{$member_row.regtime|date='Y-m-d H:i:s',###}></td>
+      </tr>
+	  
+	  <tr>
+        <th class="text-r">登录次数：</th>
+        <td><{$member_row.lognum}></td>
+      </tr>
+      <tr>
+        <th class="text-r">登录ip：</th>
+        <td><{$member_row.logip}></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<include file='Common:foot' />

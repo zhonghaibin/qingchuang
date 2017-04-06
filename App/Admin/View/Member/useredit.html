@@ -1,0 +1,107 @@
+<include file='Common:head' />
+<title>修改用户信息</title>
+</head>
+<body>
+<article class="page-container">
+	<form action="" method="post" class="form form-horizontal" id="form-member-add">
+		
+		<div class="row cl">
+			<label class="form-label col-xs-3 col-sm-3" style='text-align:right;'><span class="c-red">*</span>手机：</label>
+			<div class="formControls col-xs-7 col-sm-9">
+				<input type="text" class="input-text mobile" value="<{$member_row.mobile}>" placeholder="" id="mobile" name="mobile">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-3 col-sm-3" style='text-align:right;'><span class="c-red">*</span>支付宝：</label>
+			<div class="formControls col-xs-7 col-sm-9">
+				<input type="text" class="input-text alipay" placeholder="" name="alipay" id="alipay" value="<{$member_row.alipay}>">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-3 col-sm-3" style='text-align:right;'><span class="c-red">*</span>姓名：</label>
+			<div class="formControls col-xs-7 col-sm-9">
+				<input type="text" class="input-text name" placeholder="" name="name" id="name" value="<{$member_row.name}>">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-3 col-sm-3" style='text-align:right;'><span class="c-red">*</span>银行卡号：</label>
+			<div class="formControls col-xs-7 col-sm-9">
+				<input type="text" class="input-text bankno" placeholder="" name="bankno" id="bankno" value="<{$member_row.bankno}>" >
+			</div>
+		</div>
+		
+		<div class="row cl">
+			<label class="form-label col-xs-3 col-sm-3" style='text-align:right;'>银行名称：</label>
+			<div class="formControls col-xs-7 col-sm-9"> <span class="select-box">
+				<select class="select bank" size="1" name="bank">
+					<volist name='banklist' id='vo'>
+					 <option value="<{$vo.bankname}>" <if condition='$member_row.bank eq $vo.bankname '> selected </if>><{$vo.bankname}></option>
+					</volist>
+					</select>
+				</select>
+				</span> </div>
+		</div>
+
+		<div class="row cl">
+			<label class="form-label col-xs-3 col-sm-3" style='text-align:right;'>等级：</label>
+			<div class="formControls col-xs-7 col-sm-9"> <span class="select-box">
+				<select class="select star" size="1" name="star">
+				<foreach name='level' item='vo' >
+				<option value="<{$key}>" <if condition='$member_row.star eq $key '> selected=selected </if>><{$vo}></option>
+				</foreach>
+				</select>
+				</span> </div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-3 col-sm-3" style='text-align:right;'>星级：</label>
+			<div class="formControls col-xs-7 col-sm-9"> <span class="select-box">
+				<select class="select stars" size="1" name="stars">
+				<{$member_row.stars}>
+				<option value="0" <if condition='$member_row.stars eq 0 '> selected=selected </if>>
+				0星
+				</option>
+				<option value="1" <if condition='$member_row.stars eq 1 '> selected=selected </if>>1星</option>
+				<option value="2" <if condition='$member_row.stars eq 2 '> selected=selected </if>>2星</option>
+				<option value="3" <if condition='$member_row.stars eq 3 '> selected=selected </if>>3星</option>
+				</select>
+				</span> </div>
+		</div>
+		<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+			</div>
+		</div>
+	</form>
+</article>
+<include file='Common:foot' />
+<script type="text/javascript">
+$(function(){
+
+	
+	$("#form-member-add").validate({
+		rules:{
+			mobile:{
+				required:true,
+				isMobile:true,
+			},
+			alipay:{
+				required:true,
+				
+			},
+			name:{
+				required:true,
+			},
+			bankno:{
+				required:true,
+			},
+			
+		},
+		onkeyup:false,
+		focusCleanup:true,
+		success:"valid",
+		submitHandler:function(form){
+		user_edit_save(<{$id}>);
+		}
+	});
+});
+</script> 

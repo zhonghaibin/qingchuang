@@ -1,0 +1,170 @@
+<include file='Common:header' />
+   <script type="text/javascript">	
+		function overhidden(id)
+		{
+			$(".heddin_"+id).toggle();
+		}
+   </script>
+   <style type='text/css'>
+		.heddin{display:none;}
+   </style>
+    <div class="body_Dv">
+  <div class="MessBox" >
+    <div class="divcentent">
+        <div class="new_dv" >
+		<div class="head_title" >
+             <span class=" path left" >交易记录 > 接收帮助记录</span>
+            </div>
+            <div style="margin:20px;">
+            <table class="tablebg">
+                        <tbody>
+                            <tr class="datafield">
+                                <th style="border: 1px #fceed1 solid; font-size: 12px;" colspan="6">
+                                    <nobr>接收帮助记录</nobr>
+                                </th>
+
+                            </tr>
+                            <tr class="datalist">
+                                <td style="border: 1px #fceed1 solid; font-size: 12px;">
+                                    <nobr>编号</nobr>
+                                </td>
+                                <td style="border: 1px #fceed1 solid; font-size: 12px;">
+                                    <nobr>金额</nobr>
+                                </td>
+								<td style="border: 1px #fceed1 solid; font-size: 12px;">
+                                    <nobr>未匹配金额</nobr>
+                                </td>
+                               
+								
+                                <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr>匹配状态</nobr>
+                                </td> 
+								<td style="border: 1px #fceed1 solid; font-size: 12px;">
+                                    <nobr>下单时间</nobr>
+                                </td>
+								<td style="border: 1px #fceed1 solid; font-size: 12px;">
+                                    <nobr>操作</nobr>
+                                </td>
+                            </tr>
+							<volist name='list' id='vo'>
+                            <tr class="datalist">
+                                <td style="border: 1px #fceed1 solid; font-size: 12px;">
+                                    <nobr><{$vo.eg}></nobr>
+                                </td>
+                                <td style="border: 1px #fceed1 solid; font-size: 12px;">
+                                    <nobr><{$vo.money}></nobr>
+                                </td>
+                                <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr><{$vo.sum}></nobr>
+                                </td>
+                                <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr><{$status[$vo['status']]}></nobr>
+                                </td>
+								<td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr><{$vo.create_date|date='Y-m-d H:i:s',###}></nobr>
+                                </td>
+								<td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                     <nobr><a href='javascript:;' onclick='overhidden(<{$vo.id}>);' >查看</a></nobr>
+                                </td>
+                            </tr>
+
+								<tr class="datalist heddin_<{$vo.id}> heddin">
+                                 <td style="border: 1px #fceed1 solid; font-size: 12px;" colspan='9'>
+									<table class="tablebg" >
+										<tr class="datalist">
+											<td>编号</td>
+											<td>交易进度</td>
+											<td>匹配时间</td>
+											<td>打款会员账号</td>
+											<td>打款会员姓名</td>
+											<td>倒计时</td>
+											<td>付款金额</td>
+											<td>操作</td>
+										</tr>
+									<volist name='listcr' id='vos' >
+									<if condition='$vos["r_id"] eq $vo["id"]'>
+										<tr class="datalist">
+											<td><{$vos.cr_eg}></td>
+											<td><{$crstatus[$vos[status]]}></td>
+											<td><{$vos.create_date|date='Y-m-d H:i:s',###}></td>
+											<td><{$vos.username}></td>
+											<td><{$vos.name}></td>
+											<td>
+											<if  condition='$vos["status"] eq 2 '>
+										   <strong id="hour_show_<{$i}>" style="color:green;"><s id="h"></s>0h:</strong>
+										   <strong id="minute_show_<{$i}>" style="color:green;"><s></s>00m:</strong>
+										   <strong id="second_show_<{$i}>" style="color:green;"><s></s>00s</strong>
+											<else/>
+										   <strong id="hour_show_<{$i}>" style="color:#d00000;"><s id="h"></s>0h:</strong>
+										   <strong id="minute_show_<{$i}>" style="color:#d00000;"><s></s>00m:</strong>
+										   <strong id="second_show_<{$i}>" style="color:#d00000;"><s></s>00s</strong>
+										   </if>
+										   </td>
+											<td><{$vos.sum}></td>
+											<td> <a href='javascript:#' ' onclick='receivables("600","600","接收帮助","<{:U("Transaction/receivables",array("id"=>$vos["id"]))}>")'>详情</a></td>
+										</tr>
+										
+								<script type="text/javascript">
+                                <if condition='$vos.status eq 1 or $vos.status eq 4 '>
+								var intDiff_<{$i}> =<{$vos.die_time}>;
+								<elseif condition='$vos.status eq 2' />
+								var intDiff_<{$i}> =<{$vos.receive_time}>;
+								<else/>
+								var intDiff_<{$i}> =0;
+								</if>
+                                    //var intDiff = parseInt(60);//倒计时总秒数量
+                                    function timer_<{$i}>(intDiff_<{$i}>) {
+                                        window.setInterval(function() {
+                                            var day = 0,
+                                                    hour = 0,
+                                                    minute = 0,
+                                                    second = 0;//时间默认值
+                                            if (intDiff_<{$i}> > 0) {
+                                                //day = Math.floor(intDiff / (60 * 60 * 24));
+                                                hour = Math.floor(intDiff_<{$i}> / (60 * 60));
+                                                minute = Math.floor(intDiff_<{$i}> / 60) - (hour * 60);
+                                                second = Math.floor(intDiff_<{$i}>) - (hour * 60 * 60) - (minute * 60);
+                                            }
+                                            if (minute <= 9)
+                                                minute = '0' + minute;
+                                            if (second <= 9)
+                                                second = '0' + second;
+                                            //$('#day_show').html(day+"天");
+                                            $('#hour_show_<{$i}>').html('<s id="h"></s>' + hour + 'h:');
+                                            $('#minute_show_<{$i}>').html('<s></s>' + minute + 'm:');
+                                            $('#second_show_<{$i}>').html('<s></s>' + second + 's');
+                                            intDiff_<{$i}> --;
+                                        }, 1000);
+                                    }
+
+                                    $(function() {
+                                        timer_<{$i}>(intDiff_<{$i}>);
+                                    });
+                                </script>
+
+									</if>
+									</volist>
+									</table>
+                                </td>
+                            </tr>
+                           </volist>
+                           
+                        </tbody>
+                    </table>
+
+					<div class='page'><{$page}></div>
+
+
+        </div>
+
+ </div>
+  
+        </div>
+        
+
+
+
+        </div>
+        </div>
+</body>
+</html>

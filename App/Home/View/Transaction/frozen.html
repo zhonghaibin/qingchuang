@@ -1,0 +1,124 @@
+﻿<include file='Common:header' />
+ <div class="body_Dv">
+ <div class="MessBox" >
+    <div class="divcentent">
+        <div class="new_dv" >
+           
+             <div class="head_title" >
+             <span class=" path left" >交易记录 > 推荐奖钱包记录</span>
+             </div>
+
+
+            <div style="margin:20px;">
+            <table class="tablebg">
+                        <tbody>
+                            <tr class="datafield">
+                                <th style="border: 1px #fceed1 solid; font-size: 12px;" colspan="12">
+                                    <nobr>推荐奖钱包记录</nobr>
+                                </th>
+
+                            </tr>
+                            <tr class="datalist">
+                                <td style="border: 1px #fceed1 solid; font-size: 12px;">
+                                    <nobr>编号</nobr>
+                                </td>
+                                <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr>类型</nobr>
+                                </td>
+                                <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr>收入</nobr>
+                                </td>
+                                <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr>支出</nobr>
+                                </td>
+                                <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr>余额</nobr>
+                                </td>
+								<td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr>玩家账号</nobr>
+                                </td>
+								<td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr>玩家金额</nobr>
+                                </td>
+								<td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr>结算账号</nobr>
+                                </td>
+								<td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr>结算金额</nobr>
+                                </td>
+								<td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr>结算比例</nobr>
+                                </td>
+                                <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr>日期</nobr>
+                                </td>
+								<td style="border: 1px #fceed1 solid; font-size: 12px;">
+                                    <nobr>描述</nobr>
+                                </td>
+
+                            </tr>
+							<volist name='list' id='vo'>
+                            <tr class="datalist">
+                                <td style="border: 1px #fceed1 solid; font-size: 12px;">
+                                    <nobr><{$i}></nobr>
+                                </td>
+                                <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr><if condition='$vo.status eq 1'>收入<elseif condition='$vo.status eq 2' />支出</if></nobr>
+                                </td>
+                                <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr><{$vo.sum}></nobr>
+                                </td>
+                                <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr><{$vo.export}></nobr>
+                                </td>
+                                <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr><{$vo.balance}></nobr>
+                                </td>
+								<td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr><{$vo.from}></nobr>
+                                </td>
+								<td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr><{$vo.from_money}></nobr>
+                                </td>
+								<td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr><{$vo.settlement}></nobr>
+                                </td>
+								<td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr><{$vo.settlement_money}></nobr>
+                                </td>
+								<td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr><{$vo.from_scale}></nobr>
+                                </td>
+								<td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr><{$vo.create_date|date='Y-m-d H:i:s',###}></nobr>
+                                </td>
+                                <td style="font-size: 12px; border: 1px #fceed1 solid;">
+                                    <nobr><{$vo.explain}></nobr>
+                                </td>
+                              
+                               
+                            </tr>
+                             </volist>
+                         
+                               
+                            </tr>
+                        </tbody>
+                    </table>
+				<div class='page'>
+				<{$page}>
+				</div>
+
+
+ </div>
+        </div>
+
+
+        </div>
+        
+
+
+
+        </div>
+        </div>
+</body>
+</html>

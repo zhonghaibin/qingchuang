@@ -1,0 +1,100 @@
+﻿body, div, dl, dt, dd, ul, ol, nl, li, h1, h2, h3, h4, h5, h6, p, span, a, b, strong, object, iframe, label, img, select, form, input, textarea, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video { margin: 0; padding: 0; font-size: 14px; font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif; color: #000; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+table { border-collapse: collapse; border-spacing: 0;  }
+a { text-decoration: none; }
+    a:hover { text-decoration: none; }
+ul, ol { list-style: none outside none; }
+fieldset, img { border: 0 none; }
+textarea { resize: none; }
+    input:focus, select:focus, textarea:focus { outline: 0 none; }
+.left { float: left; }
+.right { float: right; }
+.clear { clear: both; }
+.center { text-align: center; }
+/*.body_Dv {min-height:900px;  overflow:hidden;}*/
+@media screen and (min-width: 1199px){  
+.body_Dv {  
+	width:1000px;
+    margin: 10px auto;
+    min-height: 450px;
+    overflow: hidden;
+    border: 1px solid #dcdcdc;
+    padding: 0 0 25px 0;
+    background: #fff;
+    position: absolute;
+    z-index: -1;
+    left: 24%;
+	}
+.head_sub { margin: 0 auto;width:1440px; }
+.nav_bg {display:inline-block;width:28px;height:25px;vertical-align:middle;}
+
+}
+@media screen and (min-width:600px){  
+.body_Dv {  
+	width:1000px;
+    margin: 10px auto;
+    min-height: 450px;
+    overflow: hidden;
+    border: 1px solid #dcdcdc;
+    padding: 0 0 25px 0;
+    background: #fff;
+   /* position: absolute;*/
+    z-index: -1;
+   /* left: 20%;*/
+	}
+
+.head_sub { margin: 0 auto; }
+.nav_bg {display:inline-block;height:25px;vertical-align:middle;}
+.money_l{float:left;text-align:left;height:40px;line-height:40px;color:#fff;font-size:16px;}
+.money_r{width:100px;float:right;text-align:right;height:40px;line-height:40px;color:#fff;font-size:16px;margin-right:5px;}
+}
+
+
+.body_bg{background-image:url('../../images/home/bg.jpg') ;width:100%;height:100%; }
+/*头部样式*/
+.head {width: 100%;  background-color: #f08200; height: 75px; }
+
+
+.nav_bar div {float:left;overflow:hidden;}
+.nav_bar{ overflow:hidden;}
+.nav_bar a{height:75px;line-height:75px;display:inline-block;font-size:16px;font-family:'Microsoft YaHei';color:#fff;*display:inline;padding-right:30px;}
+.nav_bar a:hover{color:yellow;}
+.nav_1{ background:url(../../images/home/cq_03.png) no-repeat}
+.nav_2{ background:url(../../images/home/cq_05.png) no-repeat}
+.nav_3{ background:url(../../images/home/cq_07.png) no-repeat}
+.nav_4{ background:url(../../images/home/cq_09.png) no-repeat}
+.nav_5{ background:url(../../images/home/cq_11.png) no-repeat}
+.nav_6{ background:url(../../images/home/cq_13.png) no-repeat}
+.nav_7{ background:url(../../images/home/cq_16.png) no-repeat}
+.nav_8{ background:url(../../images/home/cq_18.png) no-repeat}
+.nav_9{ background:url(../../images/home/cq_21.png) no-repeat}
+.nav_10{ background:url(../../images/home/cq_23.png) no-repeat}
+.nav_11{ background:url(../../images/home/cq_35.png) no-repeat 0px 2px;}
+.nav_12{ background:url(../../images/home/cq_39.png) no-repeat 0px 10px;}
+
+.nav_sub {width:100%;overflow:hidden;background-color:#f08200;display:none;*width:122px; z-index:99;}
+.nav_sub li {float:none;margin:0px;text-align:left;overflow:hidden;border-top:1px solid #e5e5e5;width:100%;text-indent:5px;}
+.nav_sub li a {font-size:13px;line-height:40px;height:40px; padding:0px; }
+.nav_sub li a:hover{color:yellow }
+.logo {margin-top: 10px; }
+.show {display:block;}
+.hide {display:none; }
+.nav_dv { background:url('../../images/home/jt_03.png') 95px center no-repeat  }
+
+/*头部样式End*/
+.mantxtbox input:focus {
+    border-color: #66afe9;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+    outline: 0 none;
+}
+.UpdaSafebox input:focus {
+    border-color: #66afe9;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+    outline: 0 none;
+}
+.searchtxt:focus {
+    border-color: #66afe9;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+    outline: 0 none;
+}
+

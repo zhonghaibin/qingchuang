@@ -1,0 +1,41 @@
+<include file='Common:head' />
+<title>分类管理</title>
+</head>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 资讯管理 <span class="c-gray en">&gt;</span> 分类管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="pd-20 text-c">
+  <form class="Huiform" action="__SELF__" method="post">
+    上级栏目：
+	<span class="select-box" style='width:200px;'>
+    <select  class='select' id="sel_Sub" name="pid" onChange="SetSubID(this);">
+      <option value="0">顶级分类</option>
+	  <volist name='list1' id='vo1' >
+	  <option value="<{$vo1.id}>"><{$vo1.art_class_name|htmlspecialchars_decode=###}></option>
+	  </volist>
+    </select>
+	</span>
+    <input type="hidden" id="hid_ccid" value="">
+    <input class="input-text" style="width:250px" name='art_class_name' type="text" value="" placeholder="输入分类" id="article-class-val"><button type="submit" class="btn btn-primary" id="" name="" onClick="article_class_add(this);"><i class="Hui-iconfont">&#xe600;</i>添加</button>
+  </form>
+  <div class="article-class-list cl mt-20">
+    <table class="table table-border table-bordered table-hover table-bg">
+      <thead>
+        <tr class="text-c">
+          <th width="80">ID</th>
+          <th>分类名称</th>
+          <th width="70">操作</th>
+        </tr>
+      </thead>
+      <tbody>
+     <volist name='list3' id='vo3'>
+        <tr class="text-c">
+          <td><{$vo3.id}></td>
+          <td class="text-l"><{$vo3.art_class_name|htmlspecialchars_decode=###}></td>
+          <td class="f-14"><a title="编辑" href="javascript:;" onClick="article_class_edit('<{$vo3.id}>','500','200','分类编辑','<{:U('Article/articleclassedit')}>')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onClick="article_class_del(this,'<{$vo3.id}>')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+        </tr>
+     </volist>
+      </tbody>
+    </table>
+  </div>
+</div>
+<include file='Common:foot' />

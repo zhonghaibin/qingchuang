@@ -1,0 +1,23 @@
+﻿<include file='Common:header' />
+<div class="body_Dv">
+<div class="MessBox" >
+    <div class="divcentent">
+        <div class="new_dv">
+           
+			<div class="head_title" >
+             <span class=" path left" >新闻</span>
+            </div>
+            <ul class="new_list">
+			<volist name='list' id='vo'>
+                <li><a class="new_title" href="<{:U('Home/Article/newspage/',array('id'=>$vo['id']))}>"><{$vo.art_title}></a><span class="new_date"><{$vo.art_time|date='Y-m-d H:i:s',###}></span></li>
+            </volist>
+            </ul>
+         <div class="page">
+			<{$page}>  
+        </div>
+        </div>
+    </div>
+	</div>
+ </div>
+</body>
+</html>

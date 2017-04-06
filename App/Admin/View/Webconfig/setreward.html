@@ -1,0 +1,48 @@
+﻿<include file='common:head' />
+<title> 奖励设置</title>
+</head>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 系统设置 <span class="c-gray en">&gt;</span> 奖励设置 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="pd-20">
+<form method="post" action="__SELF__">
+
+<table class="table table-border table-bordered table-hover table-bg">
+  <tbody>
+
+	<tr>
+      <th class="text-r" width="200">会员级别：</th><td><input type="text"  placeholder="" name='level' value="<{$setreward['level']}>" style="width:500px" class="input-text level">用,号隔开，（从低到高）</td>
+    </tr>
+	<if condition="$setreward['level'] neq ''">
+    <tr>
+      <th class="text-r" >会员推荐奖设置:</th>
+	  <td>
+	  <foreach name="level" item="level" key='key'>
+	  级别：
+	  <input type="text" readonly="readonly"  value="<{$level}>" style="width:200px" class="input-text ">可以获得：
+	  <input type="text"  placeholder="" name='<{$key}>' value="<{$dai[$key]}>" style="width:200px" class="input-text ">代<br/><br/>
+	  </foreach>
+	  </td>
+    </tr>
+	</if>
+    <tr>
+	<tr>
+      <th class="text-r">会员推荐奖比例：</th><td><input type="text" name='recommendedaward' id="website-icp" placeholder="" value="<{$setreward['recommendedaward']}>" style="width:500px" class="input-text ">%  用,号隔开 </td>
+    </tr>
+
+	<tr>
+      <th class="text-r" width="200">经理级别：</th><td><input type="text"  placeholder="" name='manager' value="<{$setreward['manager']}>" style="width:500px" class="input-text manager">用,号隔开，（从低到高）</td>
+    </tr
+
+	<tr>
+      <th class="text-r">经理无限代提成比例：</th>
+	  <td><input type="text"  placeholder="" name='managerbonus' value="<{$setreward['managerbonus']}>" style="width:500px" class="input-text ">% 用,号隔开，（从低到高）</td>
+    </tr>
+	<tr>
+      <th class="text-r"></th><td><button  id="system-base-save" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i>  确定</button></td>
+    </tr> 
+  </tbody>
+</table>
+	
+</form>
+</div>
+<include file='common:foot' />

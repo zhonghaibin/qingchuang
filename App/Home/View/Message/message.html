@@ -1,0 +1,80 @@
+<include file='Common:header' />
+   <div class="body_Dv">
+   <div class="MessBox" >
+   <div class="head_title" >
+   <span class=" path left" >信息 > 撰写信息</span>  <a class="btn" href="<{:U('Message/messagebox')}>">信件箱</a>  
+   </div>
+   <div class="body_content" >
+   <div class="mess_left_title left" >
+                类型：
+   </div>
+            <div class="mess_right_title left" >
+                <select  style='width:276px;height:38px;' class='type' name='type'> 
+                    <option value="1" >不打款</option>
+                    <option value="2" >不确认</option>
+                    <option value="3" >其他</option>
+                </select>
+               
+            </div>
+        </div>
+       <div class="body_content" >
+            <div class="mess_left_title left" >
+                主题：
+            </div>
+            <div class="mess_right_title left" >
+                <input type="text" class="inputtext subject" name='subject' />
+            </div>
+			<div class="mess_right_title left"  style='height:38px;line-height:38px;text-indent:5px;'>
+			<span class="msg_subject_tip" style="color:#d00000;"></span>
+			</div>
+        </div>
+       <div class="body_content" >
+            <div class="mess_left_title left" >
+                内容：
+            </div>
+            <div class="mess_right_title left" >
+                <textarea rows="5" cols="39" style='padding: 6px 12px; border-radius: 4px;border: 1px solid #ccc;' name='content' class='content'></textarea>
+            </div>
+			<div class="mess_right_title left" style='height:38px;line-height:38px;text-indent:5px;'><span class="msg_message_tip" style="color:#d00000;"></span> </div>
+        </div>
+        <div class="body_content body_contents" >
+            <a class="send_ms message_btn" >发送信息</a>
+        </div>
+   </div>
+        </div>
+</body>
+</html>
+<script type="text/javascript">
+function check_empty(obj,obj2,html){
+		var vals=$.trim($(obj).val());
+		if(vals){
+			flag=true;
+			$(obj2).html('');
+		}else{
+			flag=false;
+			$(obj2).html(html);
+		}
+		return flag;
+	}
+
+$(function(){
+		$('.subject').blur(function(){
+			check_empty(this,'.msg_subject_tip','请输入主题');
+		});
+		$('.content').blur(function(){
+			check_empty(this,'.msg_message_tip','请输入内容');
+		});
+
+		$('.message_btn').click(function(){
+			var flag1=check_empty('.subject','.msg_subject_tip','请输入主题');
+			var flag2=check_empty('.content','.msg_message_tip','请输入内容');
+			if(flag1 && flag2){
+
+				add_message();
+				var msg_subject=$('.msg_subject').val();
+				var msg_message=$('.msg_message').val();
+				
+			}
+		});
+});
+</script>
